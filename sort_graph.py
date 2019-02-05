@@ -8,6 +8,23 @@ def random_list():
         list.append(random.randint(0,1000))
     return list
 
+def quick_sort(list, low, high):
+    if low < high:
+        i = low
+        j = high
+        k = list[low]
+        while i < j:
+            while (i < j) and (list[j] >= k):
+                j = j - 1
+            list[i] = list[j]
+            while (i < j) and (list[i] <= k):
+                i = i + 1
+            list[j] = list[i]
+        list[i] =k
+        quick_sort(list, low, i - 1)
+        quick_sort(list, j + 1, high)
+    return list
+
 def init():
     ax.set_xlim(-1, 100)
     ax.set_ylim(-1, 1000)
