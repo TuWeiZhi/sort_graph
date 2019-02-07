@@ -35,7 +35,7 @@ def bubble_sort():
 
 def init():
     ax.set_xlim(0, 101)
-    ax.set_ylim(0, 100)
+    ax.set_ylim(0, 101)
     return
 
 def update(data):
@@ -50,9 +50,11 @@ def quick_sort_temp():
 
 if __name__ == '__main__':
     # plt.figure(figsize=(14, 8))
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(14, 7))
     n = 100
-    list = np.random.rand(n)*100
+    # list = np.random.randint(low=1, high=101, size=n)
+    resultlist = random.sample(range(1, 101), n)
+    list = np.array(resultlist)
     # print(list)
     # print(len(list))
     # print(type(list))
@@ -66,8 +68,9 @@ if __name__ == '__main__':
 #     y = [i + 1 for i in y]
 #     print(len(list))
 #     plt.bar([i for i in range(len(list))], list, width=0.5)
-    lines = ax.plot(xdata, ydata)
-
+    lines = ax.plot(xdata, ydata, '#A9A9A9', LineWidth=3)
+    temp = np.sort(list)
+    print(temp)
 # fig, ax = plt.subplot()
     ani = animation.FuncAnimation(fig, update, bubble_sort, interval=1, init_func=init)
     plt.show()
