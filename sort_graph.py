@@ -73,4 +73,5 @@ if __name__ == '__main__':
     print(temp)
 # fig, ax = plt.subplot()
     ani = animation.FuncAnimation(fig, update, bubble_sort, interval=1, init_func=init)
-    plt.show()
+    ani.save('test_animation.mp4', writer='ffmpeg',fps=1)
+    #plt.show()
